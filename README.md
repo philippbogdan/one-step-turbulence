@@ -1,10 +1,12 @@
 # One-step turbulence
 
-Close agreement on energy spectra, vorticity distributions and velocity-increment statistics does not establish realistic turbulence. One network evaluation generates a field, with an estimated 5,360× lower GPU cost for the narrow model at equal statistical precision. The wider joint model stays bounded for about 1,000 turnover times at a Reynolds number it never trained on. Yet the supplied generated fields lack the solver's coherent vortices and filaments. Evaluating learned turbulence and one-step physics generators needs tests of spatial structure too.
+Two-dimensional Kolmogorov turbulence is chaotic fluid motion in a flat box whose opposite edges join, driven by a steady force in alternating bands. Our reference is a pseudo-spectral solver: it represents the flow as Fourier waves and advances it through many small time steps, making independent samples slow to collect because successive states remain correlated. A one-step generator instead produces a whole flow field in one neural-network pass. We tested these generators against the solver and found that close statistical agreement can still hide missing coherent vortices and filaments.
 
-[![Solver vorticity beside early and late joint-model trajectories at Re 1260; the model fields remain patchy while the solver shows coherent vortices and filaments.](figures/flow-re1260.png)](figures/flow-re1260.mp4)
+[![Solver vorticity beside early and late joint-model trajectories at Re 1260; the model fields remain patchy while the solver shows coherent vortices and filaments.](figures/flow-re1260.gif)](figures/flow-re1260.mp4)
 
 [Watch the flow comparison](figures/flow-re1260.mp4): the solver beside the joint model at the start and after about 1,000 turnover times, at Re = 1260. Both model clips are patchy and grainy, without the solver's coherent vortices and filaments.
+
+The narrow model has an estimated 5,360× lower GPU cost at equal statistical precision. The wider joint model stays bounded for about 1,000 turnover times at a Reynolds number it never trained on. Evaluating learned turbulence and one-step physics generators needs tests of spatial structure too.
 
 ## What the statistics miss
 

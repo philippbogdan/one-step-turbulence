@@ -4,7 +4,7 @@ View the fields alongside the statistical plots: close curves and bounded energy
 
 | Visual | What it shows |
 | :--- | :--- |
-| [flow-re1260.mp4](flow-re1260.mp4), [poster](flow-re1260.png) | Solver vorticity beside early and late joint-model trajectories at Re 1260 |
+| [flow-re1260.gif](flow-re1260.gif), [MP4](flow-re1260.mp4), [poster](flow-re1260.png) | Solver vorticity beside early and late joint-model trajectories at Re 1260 |
 | [sample-atlas.png](sample-atlas.png) | All eight solver and twelve generated snapshots, exposing the missing coherent structures |
 | [sample-statistics.png](sample-statistics.png), [SVG](sample-statistics.svg) | Spectra, vorticity densities and signed errors in every structure-function order |
 | [rollout-statistics.png](rollout-statistics.png), [SVG](rollout-statistics.svg) | Final-window energy variation and temporal correlations against the solver |
@@ -17,7 +17,9 @@ The atlas contains five rows, each with four full fields in stored order: solver
 
 The movie shows Re 1260, between the joint model's training values 1000 and 1580. Its solver starts at the first stored final reference state. The model starts from four fresh samples, with member zero displayed. The early clip spans t = 0.0 to 29.9; the late clip spans t = 1040.1 to 1070.0. The solver's clock shows elapsed time from its own initial state. The three panels have different initial conditions and the same playback rate, so this is a comparison of structure and motion, not paired trajectory-prediction accuracy.
 
-Each movie field is divided by the Re 1260 reference rms, 4.6478196605096, from `m2_w__mean` in [reference_re1260.npz](../data/summaries/reference_re1260.npz). The common limits are -7 to 7, covering the largest absolute normalised value, 6.29. Panels use 1.75× nearest-neighbour enlargement to fit the 1536 × 576 canvas; this adds no field detail. The 300 frames play at 25 fps for 12 seconds. The poster is frame 150. The H.264 video is 7,831,701 bytes, with no audio. A poster avoids the extra grain that GIF palette quantisation and dithering could introduce.
+Each movie field is divided by the Re 1260 reference rms, 4.6478196605096, from `m2_w__mean` in [reference_re1260.npz](../data/summaries/reference_re1260.npz). The common limits are -7 to 7, covering the largest absolute normalised value, 6.29. Panels use 1.75× nearest-neighbour enlargement to fit the 1536 × 576 canvas; this adds no field detail. The 300 frames play at 25 fps for 12 seconds. The poster is frame 150. The H.264 video is 7,831,701 bytes, with no audio.
+
+The GIF plays the same comparison inline in the main README, linking to the MP4. It uses every fourth video frame: 75 frames at 6.25 fps over the same 12 seconds, at 1000 × 375 pixels with 96 colours, totalling 9,166,000 bytes. The PNG poster remains linked above for viewing a still frame.
 
 Snapshots use CPU float32 inference. Movie calculations also use CPU float32, with vorticity stored as float16. These illustrations are separate from the bf16 GPU measurements in [data/summaries/](../data/summaries/). [Regenerate the movie](../REPRODUCE.md#regenerate-the-hero) from the supplied starting state and weights; the original model random streams were not all recorded, so the procedure produces a new illustration.
 
