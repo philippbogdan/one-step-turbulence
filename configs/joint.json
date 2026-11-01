@@ -1,0 +1,71 @@
+{
+ "dim": 2,
+ "n": 256,
+ "forcing": "kolmogorov4",
+ "re_ref": 2000.0,
+ "targets": {
+  "1000": [
+   "references/re1000/stats.pt"
+  ],
+  "1580": [
+   "references/re1580/stats.pt"
+  ]
+ },
+ "zch": 4,
+ "width": [
+  64,
+  128,
+  128
+ ],
+ "inner": 0.5,
+ "memory": true,
+ "symmetrize": true,
+ "batch": 16,
+ "steps": 30000,
+ "lr": 0.0001,
+ "betas": [
+  0.9,
+  0.99
+ ],
+ "log_every": 100,
+ "save_every": 500,
+ "seed": 201,
+ "sf_subset": 16,
+ "steps_mode": true,
+ "ncorr": 40,
+ "solver_param": {
+  "1000": 1000.0,
+  "1580": 1580.0
+ },
+ "pool_members": 128,
+ "solver_dt": 0.0025,
+ "solver_steps_per_output": 40,
+ "spinup": 30.0,
+ "model_pool": 64,
+ "batch_pairs": 8,
+ "batch_model": 8,
+ "max_age0": 20,
+ "max_age1": 12000,
+ "age_ramp": 0.5,
+ "unroll": 1,
+ "pool_advance": 2,
+ "batch_resid": true,
+ "moments": true,
+ "adv_weight": 0.1,
+ "r1_every": 4,
+ "decay_at": 23000,
+ "resid_switch_at": 23000,
+ "eval_every": 0,
+ "eval_samples": 1024,
+ "out": "runs/joint",
+ "corr_pool": 64,
+ "corr_nlag": 100,
+ "batch_corr": 8,
+ "noise_cond": true,
+ "weights": {
+  "es": 3.0,
+  "lag": 3.0,
+  "corr_lags": 3.0
+ },
+ "emb": "smooth"
+}

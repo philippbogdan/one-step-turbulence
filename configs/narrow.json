@@ -1,0 +1,53 @@
+{
+ "dim": 2,
+ "n": 256,
+ "forcing": "kolmogorov4",
+ "re_ref": 2000.0,
+ "targets": {
+  "1000": [
+   "references/re1000/stats.pt"
+  ]
+ },
+ "zch": 4,
+ "width": [
+  32,
+  64,
+  64
+ ],
+ "batch": 32,
+ "steps": 40000,
+ "lr": 0.0001,
+ "log_every": 100,
+ "save_every": 500,
+ "seed": 10,
+ "sf_subset": 24,
+ "solver_param": {
+  "1000": 1000.0
+ },
+ "pool_members": 128,
+ "solver_dt": 0.0025,
+ "solver_steps_per_output": 40,
+ "spinup": 30.0,
+ "out": "runs/narrow",
+ "batch_resid": true,
+ "betas": [
+  0.9,
+  0.99
+ ],
+ "decay_at": 30000,
+ "resid_switch_at": 30000,
+ "eval_every": 5000,
+ "eval_samples": 2048,
+ "adv_weight": 0.1,
+ "symmetrize": true,
+ "moments": true,
+ "weights": {
+  "pdf_w": 2.0,
+  "pdf_g": 2.0,
+  "sf": 2.0,
+  "mom_w": 1.0,
+  "mom_g": 1.0
+ },
+ "r1_every": 4,
+ "inner": 0.5
+}

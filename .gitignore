@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+references/
+measurements/
+runs/
+results/*
+!results/headline.json
+!results/README.md

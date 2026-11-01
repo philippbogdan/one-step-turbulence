@@ -1,0 +1,4 @@
+# Optional rendering dependencies; install requirements.txt at the root first.
+matplotlib==3.11.1
+pillow==12.2.0
+# Install ffmpeg with libx264 separately and put it on PATH.

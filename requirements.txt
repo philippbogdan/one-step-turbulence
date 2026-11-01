@@ -1,0 +1,4 @@
+# Versions used for the CPU reproduction check. CUDA installations may need
+# a PyTorch wheel selected for the local driver and platform.
+numpy==2.4.6
+torch==2.12.1
