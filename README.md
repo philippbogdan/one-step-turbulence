@@ -56,15 +56,13 @@ The narrow model draws a field in **65.3 µs** at the best measured batched thro
 
 These estimates compare the cost of reducing uncertainty in the measured statistics. They do not price recovery of the missing coherent structures. [Calculation and assumptions](REPRODUCE.md#cost-estimates).
 
-## What this does not show
+## Assumptions made
 
-- Equal physical accuracy: the 5,360× figure extrapolates statistical uncertainty, excludes training cost and is sensitive to rare events and correlated reference data.
-- Realistic field structure: the supplied generated fields miss coherent vortices and filaments, and the joint model makes the strongest vortices too weak. The compared statistics do not directly test their shape or arrangement.
-- Accurate long-time dynamics: bounded energy accompanies too little energy variation, errors above tolerance and correlations that persist too long.
-- An independent final test: Re = 1260 helped select variants; Re = 2000 and the joint model at its training value 1580 remain unmeasured.
-- A measured 7.4× speedup of the shipped joint weights: timings omit two model features and assume an estimated solver step; the 14.8× narrow-width estimate has no trajectory-accuracy result.
+- Statistical comparisons use the specified periodic Kolmogorov flow, finite solver references and [chosen statistics and tolerances](REPRODUCE.md#what-is-measured).
+- Standard-error estimates treat member-time blocks as independent; sampling-cost estimates assume standard error falls with the inverse square root of sample amount.
+- Cost estimates use best batched architecture timings and an estimated solver step, excluding training, spin-up, compilation and statistic-accumulation costs ([cost assumptions](REPRODUCE.md#cost-estimates)).
 
-[Full scope and qualifications](REPRODUCE.md#development-scope).
+[Scope of the measurements](REPRODUCE.md#development-scope).
 
 ## How to use it
 
