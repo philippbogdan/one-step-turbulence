@@ -6,7 +6,7 @@ Two-dimensional Kolmogorov turbulence is chaotic fluid motion in a flat box whos
 
 [Watch the flow comparison](figures/flow-re1260.mp4): the solver beside the joint model at the start and after about 1,000 turnover times, at Re = 1260. Both model clips are patchy and grainy, without the solver's coherent vortices and filaments.
 
-The narrow model has an estimated 5,360× lower GPU cost at equal statistical precision. The wider joint model stays bounded for about 1,000 turnover times at a Reynolds number it never trained on. Evaluating learned turbulence and one-step physics generators needs tests of spatial structure too.
+The narrow model has an estimated 5,360× lower GPU cost at equal statistical precision. The wider joint model stays bounded for about 1,000 turnover times at Re 1260, which was excluded from training but used to compare and select model variants during development, so it is not an independent final test. Evaluating learned turbulence and one-step physics generators needs tests of spatial structure too.
 
 ## What the statistics miss
 
