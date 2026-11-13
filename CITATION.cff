@@ -1,0 +1,89 @@
+cff-version: 1.2.0
+message: "If this helped, cite it."
+type: software
+title: "One network pass matches turbulence's statistics. The vortices are missing"
+abstract: "One evaluation of a small network turns noise into a field of two-dimensional Kolmogorov turbulence whose energy spectrum is within 1.5% of a pseudo-spectral solver's at every scale down to the dissipation scale and whose vorticity distribution is within 5% down to 1/10,000 of its peak, at an estimated 3,700 times lower GPU cost. The fields have none of the flow's structure: the alignment of vorticity gradients with the strain is 0.01 against the solver's 0.41. With the measurement that shows it, a dynamical test, and a network-free semi-Lagrangian step that keeps two-time correlations and velocity differences within tolerance over 1,000 turnover times where a learned step fails."
+authors:
+  - family-names: Bogdan
+    given-names: Philipp
+date-released: 2026-11-11
+url: "https://github.com/philippbogdan/one-step-turbulence"
+repository-code: "https://github.com/philippbogdan/one-step-turbulence"
+license: CC0-1.0
+keywords:
+  - turbulence
+  - generative models
+  - one-step generation
+  - Kolmogorov flow
+  - semi-Lagrangian
+  - evaluation
+references:
+  - type: article
+    title: "Mean Flows for One-step Generative Modeling"
+    authors:
+      - family-names: Geng
+        given-names: Zhengyang
+      - family-names: Deng
+        given-names: Mingyang
+      - family-names: Bai
+        given-names: Xingjian
+      - family-names: Kolter
+        given-names: J. Zico
+      - family-names: He
+        given-names: Kaiming
+    year: 2025
+    url: "https://arxiv.org/abs/2505.13447"
+  - type: article
+    title: "Semi-Lagrangian integration schemes for atmospheric models: a review"
+    authors:
+      - family-names: Staniforth
+        given-names: Andrew
+      - family-names: Côté
+        given-names: Jean
+    journal: "Monthly Weather Review"
+    volume: 119
+    year: 1991
+    doi: "10.1175/1520-0493(1991)119<2206:SLISFA>2.0.CO;2"
+  - type: article
+    title: "Does the tracer gradient vector align with the strain eigenvectors in 2D turbulence?"
+    authors:
+      - family-names: Lapeyre
+        given-names: Guillaume
+      - family-names: Klein
+        given-names: Patrice
+      - family-names: Hua
+        given-names: Bach Lien
+    journal: "Physics of Fluids"
+    volume: 11
+    year: 1999
+    doi: "10.1063/1.870234"
+  - type: article
+    title: "Machine learning-accelerated computational fluid dynamics"
+    authors:
+      - family-names: Kochkov
+        given-names: Dmitrii
+      - family-names: Smith
+        given-names: Jamie A.
+      - family-names: Alieva
+        given-names: Ayya
+      - family-names: Wang
+        given-names: Qing
+      - family-names: Brenner
+        given-names: Michael P.
+      - family-names: Hoyer
+        given-names: Stephan
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: 118
+    year: 2021
+    doi: "10.1073/pnas.2101784118"
+  - type: article
+    title: "Weak baselines and reporting biases lead to overoptimism in machine learning for fluid-related partial differential equations"
+    authors:
+      - family-names: McGreivy
+        given-names: Nick
+      - family-names: Hakim
+        given-names: Ammar
+    journal: "Nature Machine Intelligence"
+    volume: 6
+    year: 2024
+    doi: "10.1038/s42256-024-00897-5"

@@ -1,0 +1,14 @@
+{
+ "device": "Tesla T4",
+ "units": "microseconds per 256 x 256 field at the best batch size",
+ "solver_per_step": 270.3,
+ "sampler": 469.5,
+ "learned_step": 919.1,
+ "transport_step": 972.3,
+ "transport_step_corrected": 1281.4,
+ "solver_over_step": {
+  "learned_step": 4.7,
+  "transport_step": 4.4,
+  "transport_step_corrected": 3.4
+ }
+}

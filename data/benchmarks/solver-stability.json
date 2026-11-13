@@ -1,0 +1,43 @@
+{
+ "fields": 8,
+ "time_units": 30,
+ "device": "Tesla T4",
+ "runs": [
+  {
+   "steps_per_output": 16,
+   "time_step": 0.00625,
+   "blows_up": false,
+   "time_units_reached": 30
+  },
+  {
+   "steps_per_output": 15,
+   "time_step": 0.006667,
+   "blows_up": false,
+   "time_units_reached": 30
+  },
+  {
+   "steps_per_output": 14,
+   "time_step": 0.007143,
+   "blows_up": false,
+   "time_units_reached": 30
+  },
+  {
+   "steps_per_output": 13,
+   "time_step": 0.007692,
+   "blows_up": true,
+   "time_units_reached": 3
+  },
+  {
+   "steps_per_output": 12,
+   "time_step": 0.008333,
+   "blows_up": true,
+   "time_units_reached": 3
+  },
+  {
+   "steps_per_output": 11,
+   "time_step": 0.009091,
+   "blows_up": true,
+   "time_units_reached": 0
+  }
+ ]
+}

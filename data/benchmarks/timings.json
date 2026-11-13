@@ -1,0 +1,40 @@
+{
+ "units": "microseconds of GPU time per 256 x 256 field at the best batch size; networks compiled, half-precision core",
+ "solver_steps_per_output": 16,
+ "note": "one output is 0.1 time units; the solver is counted at 16 steps per output, a time step of 0.00625, at which its statistics are within every tolerance (summaries/solver-dt0.00625.npz); at 13 it blows up (solver-stability.json)",
+ "sampler": {
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "sampler_per_field": 65.3,
+  "solver_per_step": 60.2,
+  "note": "timed on the architecture with untrained weights"
+ },
+ "transport_step_corrected": [
+  {
+   "gpu": "Tesla T4",
+   "step": 299.6627241373062,
+   "solver_per_step": 266.0458721220493,
+   "solver_per_output": 4256.733953952788
+  },
+  {
+   "gpu": "NVIDIA GeForce RTX 5070 Ti",
+   "step": 56.82036280632019,
+   "solver_per_step": 60.065910220146186,
+   "solver_per_output": 961.054563522339,
+   "note": "departure velocity extrapolated from the previous output instead of the Euler tendency"
+  },
+  {
+   "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+   "step": 26.317965239286423,
+   "solver_per_step": 17.69676804542542,
+   "solver_per_output": 283.1482887268067,
+   "note": "departure velocity extrapolated from the previous output instead of the Euler tendency"
+  },
+  {
+   "gpu": "Tesla T4",
+   "step": 270.8589658141136,
+   "solver_per_step": 266.0458721220493,
+   "solver_per_output": 4256.733953952788,
+   "note": "departure velocity extrapolated from the previous output instead of the Euler tendency"
+  }
+ ]
+}
