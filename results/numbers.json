@@ -931,6 +931,11 @@
    "solver_microseconds_per_step": 270.3,
    "solver_milliseconds_per_turnover_time": 46.0,
    "cost_ratio": 2326,
+   "cost_ratio_by_floor": {
+    "floor_0.0001": 1415,
+    "floor_1e-05": 2569,
+    "floor_1e-06": 2326
+   },
    "solver_over_step": {
     "learned_step": 4.7,
     "transport_step": 4.4,
