@@ -1,9 +1,9 @@
 """Time the code as shipped, on whatever card or processor is at hand: the solver, the sampler and the three
 steps, per 256 x 256 field, each at the best of a few batch sizes. Writes data/benchmarks/shipped-code.json.
 
-The cost ratios quoted in the README come from compiled implementations with a half-precision network core
-(data/benchmarks/timings.json). This script gives the same ratios for the plain implementations in this
-repository, which are written to be read.
+The README's cost ratio for one network pass comes from these timings of the plain implementations in this
+repository, which are written to be read. Compiled implementations with a half-precision network core are
+faster (data/benchmarks/timings.json), and the README gives their ratios beside these.
 
     python scripts/timing.py
 """

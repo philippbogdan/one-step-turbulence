@@ -179,9 +179,14 @@ row["cost_ratio_from_the_second_measurement"] = round(max(nr.values()) * solver_
 row["steps"] = [{"gpu": s["gpu"], "ratio": round(s["solver_per_output"] / s["step"], 1), "step_microseconds": round(s["step"], 1), **({"note": s["note"]} if "note" in s else {})} for s in tm["transport_step_corrected"]]
 pc = json.load(open(os.path.join(D, "benchmarks", "shipped-code.json")))                       # the plain code in this repository, as scripts/timing.py times it
 plain_per_T = pc["solver_per_step"] * tm["solver_steps_per_output"] * 10 * T
+plain_by_floor = {}
+for floor in (1e-4, 1e-5, 1e-6):
+    fs, fr = amount_needed(gen, ref, float(gen["outputs"]), floor), amount_needed(ref, ref, ref_T, floor)
+    plain_by_floor["floor_%g" % floor] = round(max(fr.values()) * plain_per_T / (max(fs.values()) * pc["sampler"]))
 row["plain_code"] = {"gpu": pc["device"], "sampler_microseconds_per_field": pc["sampler"], "solver_microseconds_per_step": pc["solver_per_step"],
                      "solver_milliseconds_per_turnover_time": round(plain_per_T / 1000, 1),
-                     "cost_ratio": round(max(nr.values()) * plain_per_T / (max(ns.values()) * pc["sampler"])), "solver_over_step": pc["solver_over_step"]}
+                     "cost_ratio": round(max(nr.values()) * plain_per_T / (max(ns.values()) * pc["sampler"])), "cost_ratio_by_floor": plain_by_floor,
+                     "solver_over_step": pc["solver_over_step"]}
 sb = json.load(open(os.path.join(D, "benchmarks", "solver-stability.json")))["runs"]
 row["solver_steps_per_output"] = {"counted": tm["solver_steps_per_output"], "blows_up_at": max(r["steps_per_output"] for r in sb if r["blows_up"]),
                                   "fewest_that_stayed_finite": min(r["steps_per_output"] for r in sb if not r["blows_up"])}

@@ -171,7 +171,12 @@ def test_readme_numbers_are_the_reproduced_ones():
               "climbs %.0f%%" % hand["sampler"]["energy_peak_percent"], "takes %.1f time units" % hand["time_for_sample_energy_to_return_within_the_control_band"],
               "within %.0f%%" % hand["solver"]["largest_energy_excursion_percent"],
               "%.0f times worse than assuming nothing moves, %.0f times at the largest scale" % (fc["learned_over_persistence_whole_field"], fc["learned_over_persistence_at_shell_1"]),
-              "runs %.0f times cheaper" % cost["steps"][0]["ratio"], "the plain code here gives {:,}×".format(int(round(cost["plain_code"]["cost_ratio"], -2))),
+              "runs %.0f times cheaper" % cost["steps"][0]["ratio"], "that is the estimated {:,}×".format(int(round(cost["plain_code"]["cost_ratio"], -2))),
+              "at an estimated {:,}× lower GPU cost".format(int(round(cost["plain_code"]["cost_ratio"], -2))),
+              "The {:,}× buys the statistics".format(int(round(cost["plain_code"]["cost_ratio"], -2))),
+              "a field takes %.0f µs" % cost["plain_code"]["sampler_microseconds_per_field"],
+              "The solver takes %.0f ms per turnover time" % cost["plain_code"]["solver_milliseconds_per_turnover_time"],
+              "the ratio is {:,}×".format(int(round(cost["floor_1e-06"]["cost_ratio"], -2))),
               "the plain code here, %.1f times" % cost["plain_code"]["solver_over_step"]["transport_step_corrected"],
               "%.1f%% too much energy at the smallest scale compared" % steps["transport"]["spectrum_error_percent_at_shell"]["33"],
               "mends %.1f%% of the spectrum" % steps["transport"]["spectrum_error_percent_at_shell"]["33"],
@@ -187,6 +192,6 @@ def test_readme_numbers_are_the_reproduced_ones():
     missing = [q for q in quoted if q not in readme]
     assert not missing, missing
     cited = open(os.path.join(ROOT, "CITATION.cff")).read()                      # the citation's abstract repeats four of them
-    again = ["within %.1f%% of" % one["spectrum_worst_percent"], "{:,} times".format(int(round(cost["floor_1e-06"]["cost_ratio"], -2))),
+    again = ["within %.1f%% of" % one["spectrum_worst_percent"], "{:,} times".format(int(round(cost["plain_code"]["cost_ratio"], -2))),
              "is %.2f against the solver's %.2f" % (st["sampler"]["alignment_mean"], st["solver"]["alignment_mean"])]
     assert all(q in cited for q in again), [q for q in again if q not in cited]

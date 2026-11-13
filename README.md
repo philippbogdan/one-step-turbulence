@@ -7,7 +7,7 @@
   </picture>
 </p>
 
-**One evaluation of a small network (1 NFE) turns noise into a field of two-dimensional Kolmogorov turbulence. Its energy spectrum is off by at most 1.5% at every scale down to the dissipation scale and its vorticity distribution by under 5% down to 1/10,000 of the peak, at an estimated 3,700× lower GPU cost than the pseudo-spectral solver. The vortices and filaments of real turbulence are missing.**
+**One evaluation of a small network (1 NFE) turns noise into a field of two-dimensional Kolmogorov turbulence. Its energy spectrum is off by at most 1.5% at every scale down to the dissipation scale and its vorticity distribution by under 5% down to 1/10,000 of the peak, at an estimated 2,300× lower GPU cost than the pseudo-spectral solver. The vortices and filaments of real turbulence are missing.**
 
 What one network pass makes, then handed to the solver. Height and colour are vorticity, the local spin of the fluid. By every statistic the network was trained on, the first frame is already turbulence. It is not: in a fifth of a time unit the equations draw it into the filaments and vortices it never had. Here is the number that tells the two apart, the reason it comes out that way, and the repair where one exists: for stepping in time, carry the vorticity along the flow. With no network in it, that passes a 1,000-turnover test the learned step fails 32-fold.
 
@@ -27,7 +27,7 @@ What one network pass makes, then handed to the solver. Height and colour are vo
 | Velocity differences across every distance, powers 1 to 8 | 1.8% to 16% | 1% to 8% |
 | Their signed cube | 2.7% | 3% |
 
-A field takes 65 µs of GPU time. The solver takes 10 ms per turnover time, and its rare events decorrelate so slowly that one independent sample of them costs it over 20 turnover times. At equal precision on these statistics that is the estimated 3,700×. Training is not counted, and the network was timed compiled, in half precision: the plain code here gives 2,300×. [How the estimate is made.](docs/evidence.md#cost)
+With the code here, on a Tesla T4, a field takes 470 µs of GPU time. The solver takes 46 ms per turnover time, and its rare events decorrelate so slowly that one independent sample of them costs it over 20 turnover times. At equal precision on these statistics that is the estimated 2,300×. Training is not counted. Compiled, in half precision, the network takes 65 µs a field where the solver takes 10 ms per turnover time, and the ratio is 3,700×. [How the estimate is made.](docs/evidence.md#cost)
 
 ## The field does not
 
@@ -45,7 +45,7 @@ The solver: 0.41. The network: 0.01. Over 1,024 fields each, the solver's lowest
   <img src="figures/handoff-strip-light.png" alt="Six vorticity fields in a row. The first, from the network, is blotchy. Handed to the solver, streaks appear after 0.1 and 0.2 time units, wind into spirals by 0.4, and by 1 and 3 time units the field shows round vortices and thin filaments. Alignment under the fields rises from 0.01 to 0.41 within 0.2 time units.">
 </picture>
 
-Hand a sample to the solver and the equations rebuild the filaments in 0.2 time units. They also reject it: the energy climbs 10% above where it started and takes 7.5 time units to come back. Solver fields handed over the same way stay put, within 2%. A sample is not a state of the flow, and repairing one with the solver costs about as much solver time as a fresh solver field. The 3,700× buys the statistics and nothing else.
+Hand a sample to the solver and the equations rebuild the filaments in 0.2 time units. They also reject it: the energy climbs 10% above where it started and takes 7.5 time units to come back. Solver fields handed over the same way stay put, within 2%. A sample is not a state of the flow, and repairing one with the solver costs about as much solver time as a fresh solver field. The 2,300× buys the statistics and nothing else.
 
 ## What was missing: transport
 
